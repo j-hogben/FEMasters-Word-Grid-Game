@@ -2,9 +2,11 @@
   --clr-box-bg-def: #ffffff;
   --clr-box-bg-changed: #787c7e;
   --clr-box-border-def: #d3d6da;
-  --clr-text-def: #000000;
+  --clr-text-def: #1d1d1d;
   --clr-text-guessed: #ffffff;
+
   --anim-flip-timing: 1.25s;
+  --anim-pulse-timing: 100ms;
 }
 
 * {
@@ -15,15 +17,18 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  color: var(--clr-text-def);
   font-weight: 900;
   display: grid;
   min-height: 100dvh;
-  align-items: center;
+  place-items: center;
 }
 
 button {
   font-family: inherit;
   font-weight: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h2 {
@@ -31,30 +36,47 @@ h2 {
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ WORD GRID SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.grid-section {
+  padding-inline: 3rem;
+}
 
 .word-grid {
-  padding: 1rem;
   width: min(100vw, 350px);
   height: min(120vw, 420px);
   margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: min(1.5vw, 5px);
+  gap: min(2vw, 5px);
 }
 
 .tile {
+  position: relative;
   border: solid var(--clr-box-border-def);
   border-width: min(0.75vw, 2px);
   display: grid;
   place-items: center;
 }
 
+.tile-active {
+  border-color: var(--clr-box-bg-changed);
+}
+
+.tile span {
+  position: absolute;
+  font-size: min(7.5vw, 1.875rem);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ KEYBOARD SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+main {
+  /* border: 2px solid red; */
+}
 
 .keyboard-section {
   width: 100%;
   margin-top: min(5vw, 3rem);
-  padding: 0.625rem;
+  padding-inline: 0.625rem;
 }
 
 .keyboard-grid {
@@ -104,5 +126,23 @@ button {
   button:hover,
   button:focus-visible {
     --clr-box-border-def: #eaeaea;
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ANIMATION CLASSES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.pulse {
+  animation: pulse var(--anim-pulse-timing);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ANIMATIONS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  30% {
+    scale: 1.125;
+  }
+  100% {
+    scale: 1;
   }
 }
