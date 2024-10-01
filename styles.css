@@ -19,8 +19,8 @@ body {
   font-family: 'Lato', sans-serif;
   color: var(--clr-text-def);
   font-weight: 900;
-  display: grid;
   min-height: 100dvh;
+  display: grid;
   place-items: center;
 }
 
@@ -69,13 +69,11 @@ h2 {
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ KEYBOARD SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
-main {
-  /* border: 2px solid red; */
-}
 
 .keyboard-section {
   width: 100%;
-  margin-top: min(5vw, 3rem);
+  /* margin-top: min(10vw, 5rem); */
+  margin-top: 10%;
   padding-inline: 0.625rem;
 }
 
